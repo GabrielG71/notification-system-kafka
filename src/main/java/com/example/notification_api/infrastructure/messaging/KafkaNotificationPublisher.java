@@ -14,9 +14,9 @@ public class KafkaNotificationPublisher implements NotificationPublisher {
     private final KafkaTemplate<String, String> kafkaTemplate;
     private final ObjectMapper objectMapper;
 
-    public KafkaNotificationPublisher(KafkaTemplate<String, String> kafkaTemplate) {
+    public KafkaNotificationPublisher(KafkaTemplate<String, String> kafkaTemplate, ObjectMapper objectMapper) {
         this.kafkaTemplate = kafkaTemplate;
-        this.objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+        this.objectMapper = objectMapper;
     }
 
     @Override
